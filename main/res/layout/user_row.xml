@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/user_border"
+    >
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/unknownavatar"
+        android:id="@+id/avtImg"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        />
+<TextView
+    android:id="@+id/user"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Email"
+    android:textStyle="bold"
+    android:textSize="30sp"
+    android:layout_margin="5dp"
+    android:hint="Name"
+    android:layout_toRightOf="@id/avtImg"
+    />
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textSize="25sp"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@id/avtImg"
+        android:layout_below="@id/user"/>
+</RelativeLayout>
+</RelativeLayout>

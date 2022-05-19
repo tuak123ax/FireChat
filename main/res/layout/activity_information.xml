@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Information">
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/textchonhinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hãy chọn hình ảnh của bạn"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/purple_200"/>
+<de.hdodenhof.circleimageview.CircleImageView
+    android:layout_marginTop="20dp"
+    android:id="@+id/btn_hinhanh"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_below="@id/textchonhinh"
+    android:scaleType="centerCrop"
+    android:src="@drawable/unknownavatar"
+    android:background="@android:color/transparent"
+    android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/textNhapten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sau đó hãy nhập tên bạn nhé"
+        android:textSize="20dp"
+        android:layout_below="@id/btn_hinhanh"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/purple_200"/>
+    <EditText
+        android:id="@+id/edtTen"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên"
+        android:layout_below="@id/textNhapten"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiếp theo"
+        android:textSize="30dp"
+        android:id="@+id/buttonNext"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
