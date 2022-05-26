@@ -8,15 +8,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -33,12 +38,15 @@ public class Home extends AppCompatActivity {
     ImageButton outButton;
     public static String userAvatar;
     public static String name, status,email,uid;
+    public static Switch darkmode;
+    RelativeLayout toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         anhXa();
-        DatabaseReference ref=LoginActivity.database.getReference().child("user").child(LoginActivity.mAuth.getUid());
+        FirebaseAuth mauth=FirebaseAuth.getInstance();
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("user").child(mauth.getUid());
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -57,7 +65,8 @@ public class Home extends AppCompatActivity {
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        DatabaseReference databaseReference=LoginActivity.database.getReference().child("user");
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference=database.getReference().child("user");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -102,13 +111,30 @@ public class Home extends AppCompatActivity {
                 startActivity(new Intent(Home.this,ChangeInfo.class));
             }
         });
+        darkmode.setChecked(false);
+        darkmode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b==true)
+                {
+                    recyclerView.setBackgroundColor(Color.BLACK);
+                    toolbar.setBackgroundColor(Color.GREEN);
+                }
+                else{
+                    recyclerView.setBackgroundColor(Color.WHITE);
+                    toolbar.setBackgroundColor(Color.RED);
+                }
+            }
+        });
     }
     public void anhXa()
     {
+        darkmode=(Switch)findViewById(R.id.darkswitch);
         avatar=(CircleImageView)findViewById(R.id.title);
         recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
         listUsers=new ArrayList<>();
         adapter=new UserAdapter(Home.this,listUsers);
         outButton=(ImageButton)findViewById(R.id.signout);
+        toolbar=(RelativeLayout)findViewById(R.id.toolbar);
     }
 }

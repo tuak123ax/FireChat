@@ -6,14 +6,16 @@ public class Message implements Serializable {
     public String message;
     public String senderId;
     public long time;
+    public String type;
 
     public Message() {
     }
 
-    public Message(String message, String senderId, long time) {
+    public Message(String message, String senderId, long time,String type) {
         this.message = message;
         this.senderId = senderId;
         this.time = time;
+        this.type=type;
     }
 
     public String getMessage() {
@@ -38,5 +40,13 @@ public class Message implements Serializable {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

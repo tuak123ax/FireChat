@@ -14,9 +14,10 @@
         android:id="@+id/sendText"
         android:text="Text"
         android:textSize="20dp"
+        android:padding="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:background="@color/teal_200"
+        android:background="@drawable/text_border"
         android:textColor="@color/white"
         android:layout_toLeftOf="@id/sender"/>
 </RelativeLayout>

@@ -42,7 +42,7 @@ public class Information extends AppCompatActivity {
                 String email=getIntent().getStringExtra("mail");
                 DatabaseReference ref=LoginActivity.database.getReference().child("user")
                         .child(LoginActivity.mAuth.getUid());
-                StorageReference sto=LoginActivity.storage.getReference().child("upload")
+                StorageReference sto=LoginActivity.storage.getReference().child("avatar")
                         .child(LoginActivity.mAuth.getUid());
                 if(image_Uri!=null)
                 {

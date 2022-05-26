@@ -65,7 +65,7 @@ public class ChangeInfo extends AppCompatActivity {
                 else
                 {
                     DatabaseReference ref=LoginActivity.database.getReference().child("user").child(LoginActivity.mAuth.getUid());
-                    StorageReference sto=LoginActivity.storage.getReference().child("upload")
+                    StorageReference sto=LoginActivity.storage.getReference().child("avatar")
                             .child(LoginActivity.mAuth.getUid());
                     if(img_uri!=null)
                     {
