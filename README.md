@@ -1,5 +1,7 @@
 This is a chat appication for Android. You can send messages and pictures for your friends.
+
 Language: Java
+
 Technologies:
 - Using Firebase Authentication to make signin and signup screen.
 - Using Firebase Realtime Database to store User information and messages.
