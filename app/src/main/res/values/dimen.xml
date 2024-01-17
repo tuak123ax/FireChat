@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This file is applied for mobile phone with screen size <= 400dp -->
+<resources>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="title_textSize">24sp</dimen>
+    <dimen name="big_avatar_size">115dp</dimen>
+    <!-- Signin Screen + Signup Screen-->
+    <dimen name="view_marginTop">30dp</dimen>
+    <dimen name="button_marginHorizontal">8dp</dimen>
+
+    <!-- Information Screen-->
+    <dimen name="textView_marginTop">16dp</dimen>
+    <dimen name="avatar_marginVertical">24dp</dimen>
+    <dimen name="editText_marginTop">16dp</dimen>
+    <dimen name="editText_marginHorizontal">40dp</dimen>
+    <dimen name="button_marginTop">16dp</dimen>
+    <dimen name="button_textSize">24sp</dimen>
+
+    <!-- Home Screen-->
+    <dimen name="loadingText_marginTop">5dp</dimen>
+    <dimen name="toolbar_height">50dp</dimen>
+    <dimen name="user_avatar_size">40dp</dimen>
+    <dimen name="user_avatar_margin">8dp</dimen>
+    <dimen name="username_text_size">16sp</dimen>
+    <dimen name="username_width">160dp</dimen>
+    <dimen name="switch_marginEnd">8dp</dimen>
+    <dimen name="signoutButton_size">40dp</dimen>
+    <dimen name="signoutButton_marginEnd">8dp</dimen>
+    <dimen name="user_row_height">100dp</dimen>
+    <dimen name="user_row_margin">8dp</dimen>
+    <dimen name="user_row_avatar_size">65dp</dimen>
+    <dimen name="user_row_avatar_marginHorizontal">8dp</dimen>
+    <dimen name="line_size">1dp</dimen>
+    <dimen name="line_marginTop">5dp</dimen>
+    <dimen name="user_row_text_margin">8dp</dimen>
+
+    <!-- Change Info Screen-->
+    <dimen name="big_avatar_marginTop">24dp</dimen>
+    <dimen name="editText_changeInfo_marginTop">24dp</dimen>
+    <dimen name="button_changeInfo_margin">24dp</dimen>
+
+    <!-- Chat Screen -->
+    <dimen name="back_button_size">24dp</dimen>
+    <dimen name="back_button_margin">8dp</dimen>
+    <dimen name="receiver_avatar_size">80dp</dimen>
+    <dimen name="receiver_avatar_marginTop">16dp</dimen>
+    <dimen name="seperate_line_marginTop">5dp</dimen>
+    <dimen name="seperate_line_size">0.5dp</dimen>
+    <dimen name="layout_height">40dp</dimen>
+    <dimen name="layout_margin">5dp</dimen>
+    <dimen name="imageButton_size">24dp</dimen>
+    <dimen name="chatEditText_marginHorizontal">8dp</dimen>
+    <dimen name="chatEditText_cornerRadius">50dp</dimen>
+    <dimen name="small_avatar_size">30dp</dimen>
+    <dimen name="message_margin">5dp</dimen>
+    <dimen name="message_padding">5dp</dimen>
+</resources>

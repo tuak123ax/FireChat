@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity"
+    android:background="@drawable/background">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in"
+            android:textAlignment="center"
+            android:textColor="@color/title_text_color"
+            android:textSize="@dimen/title_textSize"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_marginTop"
+            android:ems="10"
+            android:textColorHint="@color/white"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:layout_below="@id/textView"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_marginTop"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/password"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_below="@id/editTextTextEmailAddress"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/editTextTextPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/view_marginTop">
+            <Button
+                android:id="@+id/buttonDangNhap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in"
+                android:layout_marginHorizontal="@dimen/button_marginHorizontal"
+                android:background="@drawable/oval_button"
+                />
+            <Button
+                android:id="@+id/buttonDangky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_up"
+                android:layout_marginHorizontal="@dimen/button_marginHorizontal"
+                android:background="@drawable/oval_button"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
+

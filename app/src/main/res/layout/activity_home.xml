@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".home.Home">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:id="@+id/loadingView"
+        >
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/progressBar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar"
+            android:text="@string/loading"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/loadingText_marginTop"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:background="@color/red_background"
+            android:visibility="gone"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/title"
+                android:layout_width="@dimen/user_avatar_size"
+                android:layout_height="@dimen/user_avatar_size"
+                android:layout_alignParentStart="true"
+                android:layout_margin="@dimen/user_avatar_margin"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                />
+
+            <TextView
+                android:layout_width="@dimen/username_width"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:layout_toEndOf="@id/title"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/username_text_size"
+                android:textColor="@color/black"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/darkswitch"
+                android:layout_toLeftOf="@id/signout"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/switch_marginEnd"
+                />
+            <ImageButton
+                android:id="@+id/signout"
+                android:layout_width="@dimen/signoutButton_size"
+                android:layout_height="@dimen/signoutButton_size"
+                android:layout_alignParentEnd="true"
+                android:scaleType="centerCrop"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/signoutButton_marginEnd"
+                android:src="@drawable/logout"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                />
+        </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

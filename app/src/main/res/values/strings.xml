@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FireChat</string>
+    <string name="sign_in">Sign In</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="back">Back</string>
+    <string name="please_select_your_avatar">Please select your avatar</string>
+    <string name="and_input_your_name_below">And input your name below</string>
+    <string name="name">Name</string>
+    <string name="next">Next</string>
+    <string name="loading">Loading...</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="status">Status</string>
+    <string name="change">Change</string>
+    <string name="input_message">Input message</string>
+    <string name="text">Text</string>
+</resources>
