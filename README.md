@@ -1,4 +1,4 @@
-This is a chat appication for Android. You can send messages and pictures for your friends.
+This is a chat appication for Android. You can send messages and pictures to your friends.
 
 Language: Java
 
