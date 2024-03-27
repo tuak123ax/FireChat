@@ -18,6 +18,8 @@ public class Constant {
 
     public static final String KEY_USER_ID = "user_id";
     public static final String KEY_NAME = "name";
+    public static final String KEY_AVATAR = "avatar";
+    public static final String KEY_EMAIL = "email";
     public static HashMap<String, String> remoteMsgHeaders = null;
     public static HashMap<String, String> getRemoteMsgHeaders(){
         if(remoteMsgHeaders == null) {

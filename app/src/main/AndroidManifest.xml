@@ -44,7 +44,7 @@
             android:name=".login.SignUpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".splash.MainActivity"
+            android:name=".splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

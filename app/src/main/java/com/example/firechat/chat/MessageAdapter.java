@@ -74,7 +74,7 @@ public class MessageAdapter extends RecyclerView.Adapter {
         {
             SenderViewHolder senderViewHolder= (SenderViewHolder) holder;
             senderViewHolder.content.setText(message.getMessage());
-            Picasso.get().load(Home.currentUser.getImage()).into(senderViewHolder.avatar);
+            Picasso.get().load(Chat.sendUser.getImage()).into(senderViewHolder.avatar);
         }
         else
         {
@@ -90,7 +90,7 @@ public class MessageAdapter extends RecyclerView.Adapter {
                 {
                     SenderPicViewHolder senderPicViewHolder= (SenderPicViewHolder) holder;
                     Picasso.get().load(message.message).into(senderPicViewHolder.content);
-                    Picasso.get().load(Home.currentUser.getImage()).into(senderPicViewHolder.avatar);
+                    Picasso.get().load(Chat.sendUser.getImage()).into(senderPicViewHolder.avatar);
                 }
                 else
                 {

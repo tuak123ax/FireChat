@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splash.MainActivity"
-    android:background="@color/black">
+    tools:context=".splash.SplashActivity"
+    android:background="#FFFFFF">
     <TextView
         android:id="@+id/Namelabel"
         android:layout_width="wrap_content"

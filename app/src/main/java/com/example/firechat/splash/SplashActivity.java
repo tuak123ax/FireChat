@@ -14,12 +14,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
-public class MainActivity extends CoreActivity {
+public class SplashActivity extends CoreActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_splash);
 
         new Handler().postDelayed(new Runnable() {
             @Override

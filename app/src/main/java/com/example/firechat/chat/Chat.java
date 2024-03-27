@@ -1,13 +1,5 @@
 package com.example.firechat.chat;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.FileProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,14 +17,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.firechat.CoreActivity;
-import com.example.firechat.constants.Constant;
-import com.example.firechat.notification.ApiService;
-import com.example.firechat.notification.Client;
 import com.example.firechat.R;
+import com.example.firechat.constants.Constant;
 import com.example.firechat.home.Home;
 import com.example.firechat.home.User;
 import com.example.firechat.login.LoginActivity;
+import com.example.firechat.notification.ApiService;
+import com.example.firechat.notification.Client;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -67,7 +66,7 @@ public class Chat extends CoreActivity {
     EditText sendmess;
     ImageButton sendBut;
     CircleImageView oppAvatar;
-    public static String senderName;
+    public static User sendUser;
     public static String rName;
     String senderRoom,receiverRoom;
     public static RecyclerView messagePanel;
@@ -105,7 +104,13 @@ public class Chat extends CoreActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                senderName=snapshot.child("name").getValue().toString();
+                sendUser = new User();
+                sendUser.setName(snapshot.child("name").getValue().toString());
+                sendUser.setImage(snapshot.child("image").getValue().toString());
+                sendUser.setToken(snapshot.child("token").getValue().toString());
+                sendUser.setUid(snapshot.child("uid").getValue().toString());
+                sendUser.setEmail(snapshot.child("email").getValue().toString());
+                sendUser.setStatus(snapshot.child("status").getValue().toString());
                 rName=receiverUser.getName();
             }
 
@@ -240,7 +245,6 @@ public class Chat extends CoreActivity {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
-                Log.e("Camera", "Exception");
                 ex.printStackTrace();
             }
             // Continue only if the File was successfully created
@@ -248,12 +252,10 @@ public class Chat extends CoreActivity {
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.example.firechat.chat",
                         photoFile);
-                Log.e("Camera", photoURI.toString());
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityIfNeeded(takePictureIntent, CAMERA_CODE);
-            } else {
-                Log.e("Camera", "Cannot create file");
             }
+
         }
     }
     @Override
@@ -359,10 +361,12 @@ public class Chat extends CoreActivity {
             JSONArray tokens = new JSONArray();
             tokens.put(receiverUser.getToken());
             JSONObject data = new JSONObject();
-            data.put(Constant.KEY_FCM_TOKEN, getSharedPreferences("local_data", MODE_PRIVATE).getString(Constant.KEY_FCM_TOKEN,"{}"));
+            data.put(Constant.KEY_FCM_TOKEN, sendUser.getToken());
             data.put(Constant.KEY_MESSAGE, message);
-            data.put(Constant.KEY_USER_ID, mAuth.getUid());
-            data.put(Constant.KEY_NAME, senderName);
+            data.put(Constant.KEY_USER_ID, sendUser.getUid());
+            data.put(Constant.KEY_NAME, sendUser.getName());
+            data.put(Constant.KEY_AVATAR, sendUser.getImage());
+            data.put(Constant.KEY_EMAIL, sendUser.getEmail());
 
             body.put(Constant.REMOTE_MSG_DATA, data);
             body.put(Constant.REMOTE_MSG_REGISTRATION_IDS, tokens);
