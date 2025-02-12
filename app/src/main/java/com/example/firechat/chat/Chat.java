@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -19,7 +18,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -80,7 +78,7 @@ public class Chat extends CoreActivity {
     RelativeLayout layoutChat;
     RelativeLayout seperateLine;
     RelativeLayout seperateLine2;
-    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +98,7 @@ public class Chat extends CoreActivity {
         linearLayoutManager.setReverseLayout(false);
         messagePanel.setLayoutManager(linearLayoutManager);
         messagePanel.setAdapter(messageAdapter);
-        DatabaseReference ref=database.getReference().child("user").child(mAuth.getUid());
+        DatabaseReference ref=database.getReference().child("users").child(mAuth.getUid());
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -123,7 +121,7 @@ public class Chat extends CoreActivity {
             @Override
             public void onClick(View view) {
                 String message=sendmess.getText().toString();
-                if(message.equals("")) {
+                if(message.isEmpty()) {
                     showToast(getApplicationContext(), "Hãy nhập tin nhắn!");
                     return;
                 }
