@@ -45,7 +45,7 @@ public class Information extends CoreActivity {
             public void onClick(View view) {
                 String email=getIntent().getStringExtra("mail");
                 String password = getIntent().getStringExtra("password");
-                DatabaseReference ref= database.getReference().child("user")
+                DatabaseReference ref= database.getReference().child("users")
                         .child(mAuth.getUid());
                 StorageReference sto=storage.getReference().child("avatar")
                         .child(mAuth.getUid());
@@ -101,6 +101,9 @@ public class Information extends CoreActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())
                             {
+                                SharedPreferences sharedPreferences = getSharedPreferences("local_data", MODE_PRIVATE);
+                                sharedPreferences.edit().putString("email", email).apply();
+                                sharedPreferences.edit().putString("password", password).apply();
                                 Toast.makeText(Information.this,"Tạo tài khoản thành công!",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Information.this,Home.class));
                             }

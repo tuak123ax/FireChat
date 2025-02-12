@@ -68,7 +68,7 @@ public class ChangeInfo extends CoreActivity {
                 }
                 else
                 {
-                    DatabaseReference ref= database.getReference().child("user").child(mAuth.getUid());
+                    DatabaseReference ref= database.getReference().child("users").child(mAuth.getUid());
                     StorageReference sto=storage.getReference().child("avatar")
                             .child(mAuth.getUid());
                     if(img_uri!=null)

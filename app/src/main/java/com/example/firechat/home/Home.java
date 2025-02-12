@@ -66,7 +66,7 @@ public class Home extends CoreActivity {
         setContentView(R.layout.activity_home);
         mapping();
         if(mAuth != null) {
-            DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("user").child(Objects.requireNonNull(mAuth.getUid()));
+            DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("users").child(Objects.requireNonNull(mAuth.getUid()));
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -95,7 +95,7 @@ public class Home extends CoreActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         FirebaseDatabase database=FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference=database.getReference().child("user");
+        DatabaseReference databaseReference=database.getReference().child("users");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -172,7 +172,7 @@ public class Home extends CoreActivity {
         alertDialog.show();
     }
     private void updateToken(String token) {
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("user").child(Objects.requireNonNull(mAuth.getUid()));
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("users").child(Objects.requireNonNull(mAuth.getUid()));
         Map<String,Object> map=new HashMap<>();
         map.put("token",token);
         ref.updateChildren(map);
